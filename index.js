@@ -7,7 +7,7 @@ app.use(cors())
 app.use(bodyParser.json())
 conectDB()
 require('./routes/user')(app)
+require('./routes/genre')(app)
 app.listen(3000,()=>{
-    console.log('Bienvenidos al nuevo server.se levanto servidor')
+    console.log('Bienvenidos al servidor de Ataraxia')
 })
-
