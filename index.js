@@ -8,6 +8,7 @@ app.use(bodyParser.json())
 conectDB()
 require('./routes/user')(app)
 require('./routes/genre')(app)
+require('./routes/book')(app)
 app.listen(3000,()=>{
-    console.log('Bienvenidos al servidor de Ataraxia')
+    console.log('Bienvenidos al servidor')
 })
