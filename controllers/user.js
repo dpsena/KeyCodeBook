@@ -41,9 +41,42 @@ exports.update=(req,res)=>{
         birthDate: req.body.birthDate,
         age: req.body.age
     }
-    UserModel.findByIdAndUpdate(req.params.id,user)
+    UserModel.findByIdAndUpdate(req.params.id,user,{new:true})
     .then((userUpdate) => {
         res.send(userUpdate)
+    })
+    .catch((error) => {
+        res.status(500).send({
+            message: error.message
+        })
+    })
+}
+exports.getAll=(req,res)=>{
+    UserModel.find()
+    .then((users) => {
+        res.send(users)
+    })
+    .catch((error) => {
+        res.status(500).send({
+            message: error.message
+        })
+    })
+}
+exports.getOne=(req,res)=>{
+    UserModel.findById(req.params.id)
+    .then((users) => {
+        res.send(users)
+    })
+    .catch((error) => {
+        res.status(500).send({
+            message: error.message
+        })
+    })
+}
+exports.deleteOne=(req,res)=>{
+    UserModel.findById(req.params.id)
+    .then((users) => {
+        res.send(users)
     })
     .catch((error) => {
         res.status(500).send({
