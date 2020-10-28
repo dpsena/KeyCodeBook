@@ -64,6 +64,8 @@ exports.getAll=(req,res)=>{
 }
 exports.getOne=(req,res)=>{
     UserModel.findById(req.params.id)
+    .populate('genre')
+    .exec()
     .then((users) => {
         res.send(users)
     })
